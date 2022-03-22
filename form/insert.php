@@ -37,6 +37,7 @@
 
             echo nl2br("\n$sr_no\n $first_name\n $last_name\n "
                 . "$gender\n $address\n $email");
+                // use either \n or nl2br for printing each element on a new line
         } else{
             echo "ERROR". mysqli_error($conn);
         }
