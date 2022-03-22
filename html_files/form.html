@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment 6.9 - AnishSudhanNair</title>
+  </head>
+
+  <body>
+    <center>
+    <h1 style="margin-top: 30px">Form Validation 2</h1>
+    </center>
+      <form action="form_result.html" name="formValidation" onsubmit="return validate()">
+        <fieldset>
+
+        <label for="firstname">First Name: </label> <br>
+        <input type="text" id="firstname" name="firstname">
+        <br>
+        <label for="lastname">Last Name: </label> <br>
+        <input type="text" id="lastname" name="lastname">
+        <br>
+        <label for="phone">Phone: </label> <br>
+        <input type="text" id="phone" name="phone">
+        <br>
+        <label for="email">Email: </label> <br>
+        <input type="email" id="email" name="email">
+        <br>
+        <br />
+        <input type="submit" name="submit" value="Submit">
+        <input type="reset" name="reset" value="Reset">
+        <p id="error"></p>
+        </fieldset>
+      </form>
+      <script type="text/javascript">
+
+      function validate() {
+
+        var letters = /^[A-Za-z]+$/;
+
+        if ((document.formValidation.firstname.value=="")||(document.formValidation.lastname.value=="")||(document.formValidation.phone.value=="")||(document.formValidation.email.value=="")) {
+          document.getElementById("error").innerHTML="Input cannot be empty";
+          return (false);
+        }
+
+        if ((document.formValidation.firstname.value.length!=7)||(!document.formValidation.firstname.value.match(letters))) {
+          document.getElementById("error").innerHTML="First name must be 7 characters long and only of the English alphabet";
+          return (false);
+        }
+
+        if ((document.formValidation.lastname.value.length<7)||(!document.formValidation.lastname.value.length>10)||(!document.formValidation.lastname.value.match(letters))) {
+          document.getElementById("error").innerHTML="Last name must be 7-10 characters long and only of the English alphabet";
+          return (false);
+        }
+
+        if ((document.formValidation.phone.value.length!=10)) {
+          document.getElementById("error").innerHTML="Phone number must be 10 digits (numeric) long";
+          return (false);
+        }
+
+        return (true);
+
+      }
+
+      </script>
+  </body>
+</html>
